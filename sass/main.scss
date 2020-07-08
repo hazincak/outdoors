@@ -15,6 +15,7 @@ box-sizing: border-box;
 
  $color-grey-dark: #777;
  $color-white: #fff;
+ $color-black: #000;
 
  *,
  *::after,
@@ -53,32 +54,34 @@ box-sizing: border-box;
      position: relative;
  
      clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100% );
+
+     &__logo-box{
+        position: absolute;
+        /* top:40px; */
+        /* left: 40px; */
+        top:4rem;
+        left: 4rem;
+    }
+    
+    &__logo{
+        /* height: 35px; */
+        height: 3.5rem;
+    }
+    
+    &__text-box{
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        text-align: center;
+        transform: translate(-50%, -50%) ;
+        -webkit-transform: translate(-50%, -50%) ;
+        -moz-transform: translate(-50%, -50%) ;
+        -ms-transform: translate(-50%, -50%) ;
+        -o-transform: translate(-50%, -50%) ;
+    }
  }
  
- .header__logo-box{
-     position: absolute;
-     /* top:40px; */
-     /* left: 40px; */
-     top:4rem;
-     left: 4rem;
- }
- 
- .header__logo{
-     /* height: 35px; */
-     height: 3.5rem;
- }
- 
- .header__text-box{
-     position: absolute;
-     top: 40%;
-     left: 50%;
-     text-align: center;
-     transform: translate(-50%, -50%) ;
-     -webkit-transform: translate(-50%, -50%) ;
-     -moz-transform: translate(-50%, -50%) ;
-     -ms-transform: translate(-50%, -50%) ;
-     -o-transform: translate(-50%, -50%) ;
- }
+
  
  .heading-primary{
      color: $color-white;
@@ -87,29 +90,32 @@ box-sizing: border-box;
      backface-visibility: hidden ;
      -webkit-backface-visibility: hidden ;
      margin-bottom: 6rem;
+
+     &--main{
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+    
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+    
+    &--sub{
+        display: block;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out;
+        /*animation-delay: 3s;
+        *//*animation-iteration-count: 3;
+        */
+    }
+
  }
  
- .heading-primary--main{
-     display: block;
-     font-size: 6rem;
-     font-weight: 400;
-     letter-spacing: 3.5rem;
- 
-     animation-name: moveInLeft;
-     animation-duration: 1s;
-     animation-timing-function: ease-out;
- }
- 
- .heading-primary--sub{
-     display: block;
-     font-size: 20px;
-     font-weight: 700;
-     letter-spacing: 1.75rem;
-     animation: moveInRight 1s ease-out;
-     /*animation-delay: 3s;
-     *//*animation-iteration-count: 3;
-     */
- }
+
  
  @keyframes moveInLeft{
      0%{
@@ -182,9 +188,11 @@ box-sizing: border-box;
          -o-transform: translate(0);
  }
  }
- 
- .btn:link,
- .btn:visited{
+
+ .btn{
+
+ &:link,
+ &:visited{
      text-transform: uppercase;
      text-decoration: none;
      padding: 1.5rem 4rem;
@@ -203,32 +211,45 @@ box-sizing: border-box;
      -o-transition: all .2s;
  }
  
- .btn:hover{
+ &:hover{
      transform: translateY(-3px);
      -webkit-transform: translateY(-3px);
      -moz-transform: translateY(-3px);
      -ms-transform: translateY(-3px);
      -o-transform: translateY(-3px);
  
-     box-shadow: 0 10px 20px rgba(0,0,0,.2);
+     box-shadow: 0 10px 20px rgba($color-black,.2);
+     
+     &::after{
+        opacity: 0;
+        transform: scaleX(1.4) scaleY(1.6);
+        -webkit-transform: scaleX(1.4) scaleY(1.6);
+        -moz-transform: scaleX(1.4) scaleY(1.6);
+        -ms-transform: scaleX(1.4) scaleY(1.6);
+        -o-transform: scaleX(1.4) scaleY(1.6);
+    }
  }
  
- .btn:active{
+ &:active{
      transform: translateY(-1px);
      -webkit-transform: translateY(-1px);
      -moz-transform: translateY(-1px);
      -ms-transform: translateY(-1px);
      -o-transform: translateY(-1px);
  
-     box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     box-shadow: 0 5px 10px rgba($color-black,.2);
  }
  
- .btn--white{
+ &--white{
      background-color: $color-white;
      color: $color-grey-dark;
+     
+     &::after{
+        background-color: $color-white;
+    }
  }
  
- .btn::after{
+ &::after{
      content:"";
      display: inline-block;
      height: 100%;
@@ -249,22 +270,11 @@ box-sizing: border-box;
      -o-transition: all .4s;
  }
  
- .btn--white::after{
-     background-color: $color-white;
- }
- 
- .btn:hover::after{
-     opacity: 0;
-     transform: scaleX(1.4) scaleY(1.6);
-     -webkit-transform: scaleX(1.4) scaleY(1.6);
-     -moz-transform: scaleX(1.4) scaleY(1.6);
-     -ms-transform: scaleX(1.4) scaleY(1.6);
-     -o-transform: scaleX(1.4) scaleY(1.6);
- }
- 
- .btn--animated{
+ &--animated{
      animation: moveInBottom .5s ease-out;
      -webkit-animation: moveInBottom .5s ease-out .75s;
      /* applies the start 0% before animation starts */
      animation-fill-mode: backwards;
  }
+ }
+ 
