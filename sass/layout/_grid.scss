@@ -1,6 +1,5 @@
 .row{
     max-width: $grid-width;
-    background-color: #eee;
     margin: 0 auto; //centers element to the middle. Simple trick 
     
     &:not(:last-child){ //except the last child. Removes margin bottom from the last child
@@ -10,7 +9,6 @@
 
      //atribute selector
     [class^="col-"]{
-        background-color: orangered;
         float: left;
 
         &:not(:last-child){
