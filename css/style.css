@@ -163,6 +163,19 @@ body {
 .u-margin-top-big {
   margin-top: 8rem; }
 
+.bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  opacity: .15; }
+  .bg-video__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; }
+
 .composition {
   position: relative; }
   .composition__photo {
@@ -285,7 +298,7 @@ body {
   /* applies the start 0% before animation starts */
   animation-fill-mode: backwards; }
 
-.btn-text:link, .btn-text:visited {
+.btn--text:link, .btn--text:visited {
   font-size: 1.6rem;
   color: #55c57a;
   display: inline-block;
@@ -293,7 +306,7 @@ body {
   border-bottom: 1px solid #55c57a;
   padding: 3px; }
 
-.btn-text:hover {
+.btn--text:hover {
   background-color: #55c57a;
   color: #fff;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
@@ -303,7 +316,7 @@ body {
   -ms-transform: translateY(-2px);
   -o-transform: translateY(-2px); }
 
-.btn-text:active {
+.btn--text:active {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
   -webkit-transform: translateY(-2px);
@@ -438,6 +451,50 @@ body {
     font-size: 6rem;
     font-weight: 100; }
 
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  font-size: 1.6rem;
+  transform: skewX(-12deg); }
+  .story__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative; }
+  .story__img {
+    height: 100%;
+    transform: translate(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all .5s; }
+  .story__text {
+    transform: skewX(12deg); }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden; }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  .story:hover .story__img {
+    transform: translate(-4rem) scale(1);
+    filter: blur(3px) brightness(80%); }
+
 .row {
   max-width: 114rem;
   margin: 0 auto; }
@@ -518,3 +575,7 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0 50rem 0;
   margin-top: -10.9rem; }
+
+.section-stories {
+  position: relative;
+  padding: 15rem 0; }
